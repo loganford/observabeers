@@ -1,0 +1,38 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  font-size: 20px;
+}
+
+.mat-table {
+  overflow: auto;
+}
+
+md-input-container {
+  margin: 0;
+}
+
+.beer-input {
+  margin-top: 8px;
+  width: 400px;
+}
+
+.beer-sm-input {
+  margin-top: 8px;
+  width: 100px;
+}
+
+.add-icon {
+  float:right;
+  margin: 0 30px 10px 0;
+  font-size: 30px;
+}

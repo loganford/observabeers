@@ -1,0 +1,33 @@
+<h2 *ngIf="data.context == 'Edit'">Edit {{data.name}}</h2>
+<h2 *ngIf="data.context == 'Add'">Add a New Beer</h2>
+<div class="input-group beer-input">
+  <b>Name</b>
+  <input type="text" class="form-control" placeholder="Name" [(ngModel)]="data.name">
+</div>
+<div class="input-group beer-input">
+  <b>Brewery</b>
+  <input type="text" class="form-control" placeholder="Brewery" [(ngModel)]="data.brewery">
+</div>
+<div class="input-group beer-input">
+  <b>Style</b>
+  <input type="text" class="form-control" placeholder="Style" [(ngModel)]="data.style">
+</div>
+<div class="input-group beer-sm-input">
+  <b>ABV (%)</b>
+  <input type="text" class="form-control" placeholder="ABV" [(ngModel)]="data.abv">
+</div>
+<div class="input-group beer-sm-input">
+  <b>IBU</b>
+  <input type="text" class="form-control" placeholder="IBU" [(ngModel)]="data.ibu">
+</div>
+<div class="input-group beer-sm-input">
+  <b>Quantity</b>
+  <input type="text" class="form-control" placeholder="In Stock" [(ngModel)]="data.quantity">
+</div>
+
+
+<md-dialog-actions>
+  <button md-button md-dialog-close>Cancel</button>
+  <!-- Can optionally provide a result for the closing dialog. -->
+  <button md-button [md-dialog-close]="data">Save</button>
+</md-dialog-actions>

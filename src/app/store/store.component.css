@@ -1,0 +1,32 @@
+.beer-card{
+  width: 300px;
+  height: 225px;
+  float:left;
+}
+
+.beer-card md-card-content{
+  margin: 0 auto;
+  padding-bottom: 0;
+}
+
+.beer-card md-card-content p {
+  font-style: italic;
+  font-size: 17px;
+}
+
+.beer-card md-card-content div {
+  font-size: 17px;
+}
+
+.beer-card div {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+md-select{
+  margin: 0 auto;
+}
+
+h2 {
+  margin-top: 100px;
+}

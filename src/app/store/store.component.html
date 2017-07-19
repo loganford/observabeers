@@ -1,0 +1,21 @@
+<h2 class="beer-title">Beer Store</h2>
+<md-card class="beer-card" *ngFor="let beer of inventory">
+  <div class="beer-name">{{beer.name}}</div>
+  <md-card-content>
+    <p>{{beer.style}}</p>
+    <li>ABV: {{beer.abv}}%</li>
+    <li>IBU: {{beer.ibu}}</li>
+    <li>In Stock: {{beer.quantity}}</li>
+  </md-card-content>
+  <md-card-actions>
+    <md-select placeholder="Quantity" [(ngModel)]="beer.orderQuantity">
+      <md-option *ngFor="let qty of quantityOptions" [value]="qty">
+        {{qty}}
+      </md-option>
+    </md-select>
+    <button md-button (click)="order(beer.id)">Order</button>
+  </md-card-actions>
+    <!--<button md-button (click)="editingBeers.push(beer.id)" *ngIf="!editing(beer)">Edit</button>-->
+    <!--<button md-button (click)="updateBeer(beer)" *ngIf="editing(beer)">Save</button>-->
+    <!--<button md-button>Remove</button>-->
+</md-card>

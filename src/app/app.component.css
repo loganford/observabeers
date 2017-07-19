@@ -1,0 +1,13 @@
+
+.beer-title {
+  font-size: 30px;
+  text-align: center;
+}
+
+.beer-nav {
+   text-align: center;
+   text-decoration: none;
+ }
+
+.beer-nav:focus { outline:0; }
+
