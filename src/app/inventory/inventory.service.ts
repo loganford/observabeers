@@ -11,7 +11,7 @@ import {SourceService} from "../shared/source.service";
 
 // CRUD Service for the inventory of an online craft beer store
 // NOTE: This service uses a mocked out API using Observables from the RxJS library
-// In a real application setting, one should use something similar to the commented out HTTP calls to real APIs
+// In a real application, you would probably use something similar to the commented out HTTP calls to real APIs
 @Injectable()
 export class InventoryService {
 
@@ -24,15 +24,73 @@ export class InventoryService {
 
   // Get all beers in the current inventory
   getBeers(): Observable<IBeer[]> {
-    // Retrieves beers from assets/inventory.json and maps them to IBeer type
-    return this.http.get(environment.inventoryUrl).map((response: Response) => <IBeer[]>response.json()).catch(this.handleError);
+
+    // Mock GET Endpoint
+    return new Observable(observer => {
+      let beerSource = [
+          {
+            "id": 1,
+            "name": "Love Street",
+            "style": "Kolsch-Style Blonde",
+            "brewery": "Karbach Brewing Co.",
+            "abv": 4.9,
+            "ibu": 20,
+            "quantity": 500
+          },
+          {
+            "id": 2,
+            "name": "Fancy Lawnmower",
+            "brewery": "St. Arnold's",
+            "style": "German-Style Kolsch",
+            "abv": 4.9,
+            "ibu": 16,
+            "quantity": 500
+          },
+          {
+            "id": 3,
+            "name": "Brewston",
+            "brewery": "8th Wonder",
+            "style": "Texas Pale Ale",
+            "abv": 5.8,
+            "ibu": 45,
+            "quantity": 500
+          },
+          {
+            "id": 4,
+            "name": "Blood and Honey",
+            "brewery": "Revolver Brewing",
+            "style": "American Golden Ale",
+            "abv": 7.0,
+            "ibu": 20,
+            "quantity": 500
+          },
+          {
+            "id": 5,
+            "name": "Deep Ellum IPA",
+            "brewery": "Deep Ellum Brewing",
+            "style": "IPA",
+            "abv": 7.0,
+            "ibu": 70,
+            "quantity": 500
+          }
+      ];
+      observer.next(beerSource); // Add beerSource to be returned to the observer
+      observer.complete();
+    });
+
+    // To use a real GET API endpoint, you would do something similar to this:
+    // return this.http.get(environment.inventoryUrl).map((response: Response) => <IBeer[]>response.json()).catch(this.handleError);
   }
 
   // Add a new beer to the inventory, should return updated beer inventory
   addBeer(beer: IBeer): Observable<IBeer[]> {
 
+    // Mock POST Endpoint
     return new Observable(observer => {
         let beerSource = this.sourceService.getInventorySource();
+
+        // Generate ID for beer
+        beer.id = beerSource[beerSource.length-1].id + 1;
         beerSource.push(beer);
         this.sourceService.setInventorySource(beerSource);
         observer.next(beerSource);
@@ -47,6 +105,7 @@ export class InventoryService {
   // Update an existing beer in the inventory, should return updated beer inventory
   updateBeer(beerToUpdate: IBeer): Observable<IBeer[]> {
 
+    // Mock PUT Endpoint
     return new Observable(observer => {
         let beerSource = this.sourceService.getInventorySource();
         beerSource.forEach(function(beer, i){
@@ -66,6 +125,8 @@ export class InventoryService {
 
   // Delete a beer from the inventory, should return updated beer inventory
   deleteBeer(id: number): Observable<IBeer[]> {
+
+    // Mock DELETE Endpoint
     return new Observable(observer => {
         let beerSource = this.sourceService.getInventorySource();
         beerSource.forEach(function(beer, i){

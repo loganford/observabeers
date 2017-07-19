@@ -17,7 +17,7 @@ import {IBeer} from "../models/beer";
 
 export class StoreComponent implements OnInit  {
 
-  private inventory: IBeer[] = [];
+  public inventory: IBeer[] = [];
   private quantityOptions = [6, 12, 24, 48, 100];
 
   constructor(private sourceService: SourceService,

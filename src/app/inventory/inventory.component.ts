@@ -18,7 +18,7 @@ import {MdDialog, MdDialogRef, MD_DIALOG_DATA, MdDialogConfig} from "@angular/ma
 
 export class InventoryComponent implements OnInit  {
 
-  private inventory: IBeer[] = [];
+  public inventory: IBeer[] = [];
   private editingBeers: number[] = [];
 
   constructor(private inventoryService: InventoryService,
